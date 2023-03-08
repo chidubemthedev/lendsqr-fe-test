@@ -1,0 +1,110 @@
+@import "@/index.scss";
+
+.logo {
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 150px);
+}
+
+.banner {
+  width: 50%;
+
+  div {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include Tablet {
+    display: none;
+  }
+}
+
+.formcontainer {
+  width: 50%;
+  @include Tablet {
+    width: 100%;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20%;
+
+    h1 {
+      font-family: $avenirNextBold;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 55px;
+      letter-spacing: -0.04em;
+      color: $bluePrimary;
+    }
+
+    div {
+      font-family: $avenirNextBold;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 27px;
+      color: $textPrimary;
+    }
+
+    input {
+      @include input;
+      margin-top: 5%;
+      padding: 0 2%;
+      width: calc(100% - 2%);
+    }
+
+    input::placeholder {
+      opacity: 0.6;
+      font-family: $avenirNext;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: $textPrimary;
+    }
+
+    p {
+      font-family: $avenirNext;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $greenPrimary;
+      margin: 5% 0;
+    }
+
+    button {
+      @include buttonStyle;
+      width: 100%;
+    }
+
+    form {
+      .error {
+        font-family: $avenirNext;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 0;
+        letter-spacing: 0;
+        margin: 0;
+        text-transform: none;
+        color: red;
+      }
+    }
+  }
+}
