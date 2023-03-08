@@ -88,6 +88,20 @@
       margin: 5% 0;
     }
 
+    .password_icon {
+      position: absolute;
+      right: 10%;
+      top: 52.5%;
+      //   transform: translateY(-50%);
+      //   font-size: 12px;
+      //   color: $greenPrimary;
+      //   font-weight: 700;
+      cursor: pointer;
+      @include Tablet {
+        right: 20%;
+      }
+    }
+
     button {
       @include buttonStyle;
       width: 100%;

@@ -10,7 +10,8 @@ const Login = (props: Props) => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -37,6 +38,10 @@ const Login = (props: Props) => {
     }
   };
 
+  const showHandler = () => {
+    setShow(!show);
+  };
+
   return (
     <>
       <div className={classes.logo}>
@@ -58,7 +63,14 @@ const Login = (props: Props) => {
               <input type="email" placeholder="Email" ref={emailRef} />
               {emailError && <p className={classes.error}>{emailError}</p>}
 
-              <input type="password" placeholder="Password" ref={passwordRef} />
+              <input
+                type={show ? "text" : "password"}
+                placeholder="Password"
+                ref={passwordRef}
+              />
+              <p className={classes.password_icon} onClick={showHandler}>
+                SHOW
+              </p>
               {passwordError && (
                 <p className={classes.error}>{passwordError}</p>
               )}
