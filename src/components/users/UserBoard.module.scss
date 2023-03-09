@@ -1,0 +1,39 @@
+@import "@/index.scss";
+
+.container {
+  display: flex;
+  gap: 40px;
+  justify-content: space-around;
+  align-items: center;
+
+  div {
+    background-color: white;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    width: 25%;
+    min-height: 100px;
+  }
+}
+
+.card {
+  padding: 2% 3%;
+
+  .title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $textPrimary;
+  }
+
+  .value {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: $bluePrimary;
+  }
+}
