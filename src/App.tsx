@@ -11,8 +11,8 @@ function App() {
       {/* <Login /> */}
       {/* <Dashboard /> */}
       {/* <Navbar /> */}
-      {/* <Sidebar /> */}
-      <Users />
+      <Sidebar />
+      {/* <Users /> */}
     </>
   );
 }
