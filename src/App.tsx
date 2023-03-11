@@ -10,8 +10,8 @@ function App() {
     <>
       {/* <Login /> */}
       {/* <Dashboard /> */}
-      {/* <Navbar /> */}
-      <Sidebar />
+      <Navbar />
+      {/* <Sidebar /> */}
       {/* <Users /> */}
     </>
   );

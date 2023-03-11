@@ -6,6 +6,11 @@
   background: #ffffff;
   font-family: $workSans;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
 
   ul {
     list-style: none;
@@ -49,6 +54,18 @@
         //   opacity: 0.06;
       }
 
+      // &:active {
+      //   background-color: $greenPrimary;
+      //   //   opacity: 0.06;
+      // }
+
+      // &:active::before {
+      //   content: "";
+      //   width: 8px;
+      //   height: 100%;
+      //   background: $greenPrimary;
+      // }
+
       span {
         display: flex;
         align-items: center;
@@ -56,4 +73,19 @@
       }
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $textPrimary; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $bluePrimary; 
 }

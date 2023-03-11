@@ -13,7 +13,8 @@ type Props = {
 
 const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container} ${classes.scroll}`}>
+      {/* Main section */}
       <div className={classes.blocks}>
         <ul>
           <li>
@@ -31,6 +32,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
         </ul>
       </div>
 
+      {/* Customer section */}
       <div className={classes.blocks}>
         <h1>CUSTOMERS</h1>
         {customerSideBar.map((item, index) => (
@@ -45,6 +47,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
         ))}
       </div>
 
+      {/* Business section */}
       <div className={classes.blocks}>
         <h1>BUSINESSES</h1>
         {businessSideBar.map((item, index) => (
@@ -59,6 +62,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
         ))}
       </div>
 
+      {/* Settings section */}
       <div className={classes.blocks}>
         <h1>SETTINGS</h1>
         {settingsSideBar.map((item, index) => (
