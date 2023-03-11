@@ -10,9 +10,9 @@ function App() {
     <>
       {/* <Login /> */}
       {/* <Dashboard /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <Sidebar /> */}
-      {/* <Users /> */}
+      <Users />
     </>
   );
 }

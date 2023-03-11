@@ -6,18 +6,30 @@
   justify-content: space-around;
   align-items: center;
 
-  div {
-    background-color: white;
-    border: 1px solid rgba(33, 63, 125, 0.06);
-    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-    border-radius: 4px;
-    width: 25%;
-    min-height: 100px;
+  @include Tablet {
+    flex-wrap: wrap;
+    gap: 20px;
   }
 }
 
 .card {
+
   padding: 2% 3%;
+
+  background-color: white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  width: 25%;
+  min-height: 100px;
+
+  @include Tablet {
+    width: 40%;
+  }
+
+  @include Mobile {
+    width: 100%;
+  }
 
   .title {
     font-style: normal;

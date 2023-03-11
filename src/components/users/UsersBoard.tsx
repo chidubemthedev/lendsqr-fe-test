@@ -1,10 +1,10 @@
 import React from "react";
-import classes from "./UserBoard.module.scss";
+import classes from "./UsersBoard.module.scss";
 import { userBoard } from "@/shared/types";
 
 type Props = {};
 
-const UserBoard = (props: Props) => {
+const UsersBoard = (props: Props) => {
   return (
     <div className={classes.container}>
       {userBoard.map((item, index) => {
@@ -20,4 +20,4 @@ const UserBoard = (props: Props) => {
   );
 };
 
-export default UserBoard;
+export default UsersBoard;
