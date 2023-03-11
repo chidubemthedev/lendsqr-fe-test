@@ -1,14 +1,11 @@
 @import "@/index.scss";
 
 .container {
-  display: flex;
-  flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
   height: 100%;
+  width: 100%;
   background-color: white;
   margin-top: 2rem;
-  // padding: 0 20px;
+  overflow-x: auto;
 }
 
 table {
@@ -20,10 +17,10 @@ table {
   font-size: 14px;
   color: #545f7d;
   margin-bottom: 2rem;
-  overflow: scroll;
+  background-color: #f2f2f2;
+
 
   thead {
-    background-color: #f2f2f2;
     border-bottom: 1px solid #ddd;
     tr {
       th {
@@ -52,6 +49,8 @@ table {
   }
 
   tbody {
+    background-color: white;
+
     tr {
       border-bottom: 1px solid #ddd;
       td {

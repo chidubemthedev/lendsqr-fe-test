@@ -74,18 +74,3 @@
     }
   }
 }
-
-::-webkit-scrollbar {
-  width: 7px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $textPrimary; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: $bluePrimary; 
-}
