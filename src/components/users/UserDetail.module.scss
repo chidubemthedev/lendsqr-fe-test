@@ -1,0 +1,220 @@
+@import "@/index.scss";
+
+.container {
+  padding: 5%;
+  background-color: #e5e5e5;
+  font-family: $workSans;
+
+  .span {
+    margin-right: 1rem;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    button {
+      @include buttonStyle;
+    }
+
+    .blacklist {
+      font-family: $workSans;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e4033b;
+      background-color: transparent;
+      border: 1px solid #e4033b;
+      border-radius: 8px;
+
+      @include Mobile {
+        padding: 7px 10px;
+        font-size: 10px;
+      }
+    }
+
+    .activate {
+      font-family: $workSans;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $greenPrimary;
+      background-color: transparent;
+      border: 1px solid $greenPrimary;
+      border-radius: 8px;
+
+      @include Mobile {
+        padding: 7px 10px;
+        font-size: 10px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 500;
+    color: $bluePrimary;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+
+  @include TabletSize {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // .profileinfo {
+    //   border-right: none;
+    //   border-bottom: 1px solid $textPrimary;
+    // }
+  }
+
+  div {
+    background-color: burlywood;
+    padding: 1rem 1rem;
+
+    h1 {
+      margin: 0;
+    }
+    // padding: 1rem;
+  }
+
+  .profileinfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-right: 1px solid $textPrimary;
+
+    @include TabletSize {
+      border-right: none;
+      border-bottom: 1px solid $textPrimary;
+    }
+
+    div {
+      margin: 0 0.5rem;
+      padding: 0;
+
+      img {
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+        object-fit: cover;
+      }
+
+      h1 {
+        font-size: 22px;
+        line-height: 26px;
+        font-weight: 500;
+        color: $bluePrimary;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 16px;
+        color: $textPrimary;
+      }
+    }
+  }
+
+  .profiletier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid $textPrimary;
+
+    @include TabletSize {
+      border-right: none;
+      border-bottom: 1px solid $textPrimary;
+    }
+
+    h1 {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 500;
+      color: $textPrimary;
+    }
+  }
+
+  .profilebalance {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 22px;
+      line-height: 26px;
+      font-weight: 500;
+      color: $bluePrimary;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 14px;
+      color: $bluePrimary;
+    }
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  margin-top: 2rem;
+  padding: 1rem;
+
+  h1 {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 500;
+    color: $bluePrimary;
+  }
+}
+
+.detailssection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  min-width: max-content;
+
+  margin: 1rem 0;
+
+  h2 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $textPrimary;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: $textPrimary;
+  }
+}
