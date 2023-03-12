@@ -1,0 +1,20 @@
+@import "@/index.scss";
+
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+// }
+
+.main {
+    display: flex;
+    width: 100%;
+
+    .left {
+        min-width: fit-content;
+    }
+
+    .right {
+        display: flex;
+    }
+}

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import signIn from "@/assets/sign-in-banner.svg";
 import brandLogo from "@/assets/logo.svg";
 import classes from "./Login.module.scss";
@@ -12,6 +13,8 @@ const Login = (props: Props) => {
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [show, setShow] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -35,6 +38,9 @@ const Login = (props: Props) => {
     if (email && password) {
       setLoading(true);
       console.log(`Email: ${email}, Password: ${password}`);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 2000);
     }
   };
 

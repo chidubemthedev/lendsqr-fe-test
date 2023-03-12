@@ -195,6 +195,43 @@
   }
 }
 
+.innav {
+  background-color: white;
+  padding: 1rem;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+
+    li {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      //   text-align: center;
+      min-width: max-content;
+      color: rgba(0, 0, 0, 0.8);
+
+      &:hover {
+        color: $greenPrimary;
+        cursor: pointer;
+        border-bottom: 2px solid $greenPrimary;
+      }
+
+      &:active {
+        color: $greenPrimary;
+        border-bottom: 2px solid $greenPrimary;
+      }
+    }
+  }
+}
+
 .details {
   //   display: flex;
   //   flex-direction: column;

@@ -52,6 +52,18 @@ const UserDetail = (props: Props) => {
         </div>
       </div>
 
+      {/* in-nav */}
+      <div className={classes.innav}>
+        <ul>
+          <li>General Details</li>
+          <li>Documents</li>
+          <li>Bank Details</li>
+          <li>Loans</li>
+          <li>Savings</li>
+          <li>App and System</li>
+        </ul>
+      </div>
+
       {/* Details section */}
       <div className={classes.details}>
         {/* personal info */}

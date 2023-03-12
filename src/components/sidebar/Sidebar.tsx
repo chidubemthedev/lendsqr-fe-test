@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./Sidebar.module.scss";
 import { customerSideBar } from "@/shared/sidebar";
 import { businessSideBar } from "@/shared/sidebar";
@@ -6,22 +7,21 @@ import { settingsSideBar } from "@/shared/sidebar";
 import Switch from "@/assets/switch.svg";
 import Dashboard from "@/assets/dashboard.svg";
 
-type Props = {
-  isOpen: boolean;
-  toggleSidebar: () => void;
-};
+type Props = {};
 
-const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
+const Sidebar = (props: Props) => {
   return (
     <div className={`${classes.container} ${classes.scroll}`}>
       {/* Main section */}
       <div className={classes.blocks}>
         <ul>
           <li>
-            <span>
-              <img src={Switch} alt="switch icon" />
-            </span>{" "}
-            Switch Organization
+            <Link to="/dashboard">
+              <span>
+                <img src={Switch} alt="switch icon" />
+              </span>{" "}
+              Switch Organization
+            </Link>
           </li>
           <li>
             <span>
@@ -38,10 +38,12 @@ const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
         {customerSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <span>
-                <img src={item.icon} alt="customer icons" />
-              </span>{" "}
-              {item.title}
+              <Link to={item.title}>
+                <span>
+                  <img src={item.icon} alt="customer icons" />
+                </span>{" "}
+                {item.title}
+              </Link>
             </li>
           </ul>
         ))}
@@ -53,10 +55,12 @@ const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
         {businessSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <span>
-                <img src={item.icon} alt="business icons" />
-              </span>{" "}
-              {item.title}
+              <Link to={item.title}>
+                <span>
+                  <img src={item.icon} alt="business icons" />
+                </span>{" "}
+                {item.title}
+              </Link>
             </li>
           </ul>
         ))}
@@ -67,12 +71,14 @@ const Sidebar = ({ isOpen, toggleSidebar }: Props) => {
         <h1>SETTINGS</h1>
         {settingsSideBar.map((item, index) => (
           <ul key={index}>
-            <li>
-              <span>
-                <img src={item.icon} alt="settings icons" />
-              </span>{" "}
-              {item.title}
-            </li>
+            <Link to={item.title}>
+              <li>
+                <span>
+                  <img src={item.icon} alt="settings icons" />
+                </span>{" "}
+                {item.title}
+              </li>
+            </Link>
           </ul>
         ))}
       </div>
