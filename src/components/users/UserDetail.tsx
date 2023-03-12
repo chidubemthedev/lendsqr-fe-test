@@ -96,7 +96,7 @@ const UserDetail = (props: Props) => {
         {/* education and employment */}
         <div>
           <h1>Education and Employment</h1>
-          <div>
+          <div className={classes.detailssection}>
             <div>
               <h2>level of education</h2>
               <p>B.Sc</p>
@@ -131,7 +131,7 @@ const UserDetail = (props: Props) => {
         {/* socials */}
         <div>
           <h1>Socials</h1>
-          <div>
+          <div className={classes.detailssection}>
             <div>
               <h2>Twitter</h2>
               <p>@grace_effiom</p>
@@ -150,7 +150,7 @@ const UserDetail = (props: Props) => {
         {/* gurantor */}
         <div>
           <h1>Gurantor</h1>
-          <div>
+          <div className={classes.detailssection}>
             <div>
               <h2>full Name</h2>
               <p>Debby Ogana</p>

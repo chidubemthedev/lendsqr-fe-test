@@ -16,6 +16,10 @@
   align-items: center;
   margin: 1rem 0;
 
+  @media (max-width: 300px) {
+    flex-direction: column;
+  }
+
   div {
     display: flex;
     justify-content: space-between;
@@ -88,8 +92,11 @@
   }
 
   div {
-    background-color: burlywood;
-    padding: 1rem 1rem;
+    padding: 1rem 3rem;
+
+    @include Tablet {
+      padding: 1rem 1rem;
+    }
 
     h1 {
       margin: 0;
@@ -101,11 +108,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-right: 1px solid $textPrimary;
+    margin: 20px 0;
+    border-right: 1px solid rgba(84, 95, 125, 0.2);
 
     @include TabletSize {
       border-right: none;
-      border-bottom: 1px solid $textPrimary;
+      border-bottom: 1px solid rgba(84, 95, 125, 0.2);
+      overflow: hidden;
     }
 
     div {
@@ -117,6 +126,16 @@
         height: 100px;
         vertical-align: middle;
         object-fit: cover;
+
+        @include Mobile {
+          width: 100px;
+          height: 100px;
+
+          @media (max-width: 300px) {
+            width: 50px;
+            height: 50px;
+          }
+        }
       }
 
       h1 {
@@ -139,11 +158,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid $textPrimary;
+    margin: 20px 0;
+    border-right: 1px solid rgba(84, 95, 125, 0.2);
 
     @include TabletSize {
       border-right: none;
-      border-bottom: 1px solid $textPrimary;
+      border-bottom: 1px solid rgba(84, 95, 125, 0.2);
     }
 
     h1 {
@@ -176,8 +196,8 @@
 }
 
 .details {
-  display: flex;
-  flex-direction: column;
+  //   display: flex;
+  //   flex-direction: column;
   background: #ffffff;
   border: 1px solid rgba(33, 63, 125, 0.06);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -197,11 +217,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 1rem 3rem;
   width: 100%;
-  min-width: max-content;
-
   margin: 1rem 0;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.2);
+
+  @include TabletSize {
+    gap: 1rem 1.5rem;
+  }
 
   h2 {
     font-weight: 400;
