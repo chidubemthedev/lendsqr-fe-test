@@ -8,9 +8,9 @@
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
   overflow: scroll;
 
-  @include Tablet {
-    display: none;
-  }
+  // @include Tablet {
+  //   display: none;
+  // }
 
   ::-webkit-scrollbar {
     width: 20px;
@@ -33,6 +33,7 @@
     line-height: 14px;
     color: $textPrimary;
     margin-left: 1rem;
+    text-align: left;
   }
 
   ul {

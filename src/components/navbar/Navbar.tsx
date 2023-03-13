@@ -7,6 +7,7 @@ import Dropdown from "@/assets/nav_dropdown.png";
 import Open from "@/assets/open_icon.svg";
 import Close from "@/assets/close_icon.svg";
 import classes from "./Navbar.module.scss";
+import Sidebar from "../sidebar/Sidebar";
 
 type Props = {};
 
@@ -77,13 +78,9 @@ const Navbar = (props: Props) => {
               </button>
             </div>
           </div>
-          <ul>
-            <li>Docs</li>
-            <li>a</li>
-            <li>s</li>
-            <li>f</li>
-            <li>r</li>
-          </ul>
+          <div>
+            <Sidebar />
+          </div>
         </div>
       )}
     </nav>
