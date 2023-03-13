@@ -8,6 +8,7 @@ import ViewIcon from "@/assets/dropdownicons/view.svg";
 import { userTable } from "@/shared/dataTypes";
 
 import { getUsers } from "@/util/api";
+import ReactPaginate from "react-paginate";
 
 type Props = {
   // users: userTable[];
@@ -18,6 +19,8 @@ const UserTable = (props: Props) => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [data, setData] = useState<any>([]);
 
+  const itemsPerPage = 10;
+
   useEffect(() => {
     const users = getUsers();
 
@@ -25,8 +28,19 @@ const UserTable = (props: Props) => {
       console.log(res);
       setData(res);
     });
-    
   }, []);
+
+  //pagination
+  const [itemOffset, setItemOffset] = useState(0);
+  const endOffset = itemOffset + itemsPerPage;
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = data.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageClick = (event: any) => {
+    const newOffset = (event.selected * itemsPerPage) % data.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <div>
@@ -76,7 +90,7 @@ const UserTable = (props: Props) => {
 
           <tbody>
             {data &&
-              data.map((user: any, index: number) => (
+              currentItems.map((user: any, index: number) => (
                 <tr key={index}>
                   <td>{user.organisation}</td>
                   <td>{user.username}</td>
@@ -115,6 +129,37 @@ const UserTable = (props: Props) => {
               ))}
           </tbody>
         </table>
+      </div>
+
+      {/* pagination */}
+      <div className={classes.paginationcontainer}>
+        <div className={classes.paginationinfo}>
+          <p>Showing</p>
+          <p className={classes.showing}>{itemOffset + itemsPerPage}</p>
+          <p>out of {data.length}</p>
+        </div>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="<"
+          containerClassName={classes.pagination}
+          pageClassName={classes.page}
+          pageLinkClassName={classes.pageLink}
+          activeClassName={classes.active}
+          previousClassName={classes.previous}
+          nextClassName={classes.next}
+          previousLinkClassName={classes.previousLink}
+          nextLinkClassName={classes.nextLink}
+          disabledClassName={classes.disabled}
+          // marginPagesDisplayed={2}
+          // pageRangeDisplayed={5}
+          
+
+          // renderOnZeroPageCount={null}
+        />
       </div>
     </div>
   );

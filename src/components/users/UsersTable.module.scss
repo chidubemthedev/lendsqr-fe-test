@@ -19,7 +19,6 @@ table {
   margin-bottom: 2rem;
   background-color: #f2f2f2;
 
-
   thead {
     border-bottom: 1px solid #ddd;
     tr {
@@ -110,4 +109,65 @@ table {
       }
     }
   }
+}
+
+.paginationcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include Mobile {
+    flex-direction: column;
+  }
+}
+
+.paginationinfo {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: $textPrimary;
+  font-weight: 400;
+  font-family: $workSans;
+  gap: 0.5rem;
+
+  .showing {
+    background: rgba(33, 63, 125, 0.1);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 0;
+  color: $textPrimary;
+}
+
+.active {
+  color: $bluePrimary;
+  font-weight: 500;
+}
+
+.page {
+  cursor: pointer;
+  color: $textPrimary;
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+.previous,
+.next {
+  cursor: pointer;
+  background: rgba(33, 63, 125, 0.1);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
 }
