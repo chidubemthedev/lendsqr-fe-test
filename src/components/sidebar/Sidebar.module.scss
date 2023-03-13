@@ -5,9 +5,12 @@
   flex-direction: column;
   background: #ffffff;
   font-family: $workSans;
-  height: 100vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
   overflow: scroll;
+
+  @include Tablet {
+    display: none;
+  }
 
   ::-webkit-scrollbar {
     width: 20px;

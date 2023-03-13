@@ -1,9 +1,12 @@
 @import "@/index.scss";
 
 .container {
+  display: flex;
+  flex-direction: column;
   padding: 5%;
   background-color: #e5e5e5;
   font-family: $workSans;
+  width: calc(100% - 10%);
 
 
   h1 {

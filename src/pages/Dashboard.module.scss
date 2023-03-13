@@ -6,12 +6,35 @@
 //     width: 100%;
 // }
 
+// .main {
+//     display: flex;
+//     width: 100%;
+
+//     .left {
+//         min-width: fit-content;
+//     }
+
+//     .right {
+//         display: flex;
+//     }
+// }
+
+.container {
+    // display: flex;
+    // flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .main {
-    display: flex;
+    // display: flex;
+    // flex-direction: row;
     width: 100%;
 
     .left {
-        min-width: fit-content;
+        // display: inline-block;
+        float: left;
     }
 
     .right {

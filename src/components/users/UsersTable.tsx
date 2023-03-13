@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./UsersTable.module.scss";
 import FilterButton from "@/assets/filterbutton.svg";
 import Icmore from "@/assets/icmore.svg";
 import DeleteIcon from "@/assets/dropdownicons/delfriend.svg";
 import UserIcon from "@/assets/dropdownicons/user.svg";
 import ViewIcon from "@/assets/dropdownicons/view.svg";
+import { userTable } from "@/shared/dataTypes";
 
-type Props = {};
+import { getUsers } from "@/util/api";
+
+type Props = {
+  // users: userTable[];
+};
 
 const UserTable = (props: Props) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
+  const [data, setData] = useState<any>([]);
+
+  useEffect(() => {
+    const users = getUsers();
+
+    const data = users.then((res) => {
+      console.log(res);
+      setData(res);
+    });
+    
+  }, []);
 
   return (
     <div>
@@ -59,63 +75,44 @@ const UserTable = (props: Props) => {
           </thead>
 
           <tbody>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>Inactive</td>
-              <td>
-                <img
-                  onClick={() => {
-                    setToggleDropdown(!toggleDropdown);
-                  }}
-                  src={Icmore}
-                  alt="more options button"
-                />
-                {toggleDropdown && (
-                  <div className={classes.dropdown}>
-                    <ul>
-                      <li>
-                        <img src={ViewIcon} alt="view icon" />
-                        <span>View Details</span>
-                      </li>
-                      <li>
-                        <img src={DeleteIcon} alt="view icon" />
-                        <span>Blacklist User</span>
-                      </li>
-                      <li>
-                        <img src={UserIcon} alt="view icon" />
-                        <span>Activate User</span>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>Inactive</td>
-              <td>
-                <img src={Icmore} alt="more options button" />
-              </td>
-            </tr>
-            <tr>
-              <td>Lendsqr</td>
-              <td>Adedeji</td>
-              <td>adedeji@lendsqr.com</td>
-              <td>08078903721</td>
-              <td>May 15, 2020 10:00 AM</td>
-              <td>Inactive</td>
-              <td>
-                <img src={Icmore} alt="more options button" />
-              </td>
-            </tr>
+            {data &&
+              data.map((user: any, index: number) => (
+                <tr key={index}>
+                  <td>{user.organisation}</td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phone}</td>
+                  <td>{user.dateJoined}</td>
+                  <td>Inactive</td>
+                  <td>
+                    <img
+                      onClick={() => {
+                        setToggleDropdown(!toggleDropdown);
+                      }}
+                      src={Icmore}
+                      alt="more options button"
+                    />
+                    {toggleDropdown && (
+                      <div className={classes.dropdown}>
+                        <ul>
+                          <li>
+                            <img src={ViewIcon} alt="view icon" />
+                            <span>View Details</span>
+                          </li>
+                          <li>
+                            <img src={DeleteIcon} alt="view icon" />
+                            <span>Blacklist User</span>
+                          </li>
+                          <li>
+                            <img src={UserIcon} alt="view icon" />
+                            <span>Activate User</span>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

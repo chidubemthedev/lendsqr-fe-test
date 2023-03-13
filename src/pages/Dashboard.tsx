@@ -12,12 +12,18 @@ type Props = {};
 const Dashboard = (props: Props) => {
   return (
     <>
-      <Navbar />
-      <div className={classes.main}>
-        <div className={classes.left}>
-          <Sidebar />
+      {/* <Navbar /> */}
+      <div className={classes.container}>
+          <Navbar />
+        
+        <div className={classes.main}>
+          <div className={classes.left}>
+            <Sidebar />
+          </div>
+          <div className={classes.right}>
+            <Outlet />
+          </div>
         </div>
-        <div className={classes.right}><Outlet /></div>
       </div>
     </>
   );
