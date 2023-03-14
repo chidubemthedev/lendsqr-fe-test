@@ -31,7 +31,7 @@ export async function getUsers() {
   return neededData;
 }
 
-export async function getUser(id: number): Promise<any> {
+export async function getUser(id: number) {
   const response = await fetch(`${url}/${id}`);
   const data = await response.json();
   return data;

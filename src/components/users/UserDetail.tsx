@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./UserDetail.module.scss";
 import Backarrow from "@/assets/userdetailicon/backarrow.svg";
 import Avatar from "@/assets/userdetailicon/avatar.svg";
 import StarFilled from "@/assets/userdetailicon/starfilled.svg";
 import StarOutline from "@/assets/userdetailicon/staroutline.svg";
 
+import { getUser } from "@/util/api";
+import { useParams } from "react-router-dom";
+
 type Props = {};
 
 const UserDetail = (props: Props) => {
+  const [user, setUser] = useState<any>({});
+  const params = useParams();
+  const id = params.id;
+  console.log(id);
+
+  // useEffect(() => {
+  //   const user = getUser(id!);
+  //   console.log(user);
+  // }, []);
+
   return (
     <div className={classes.container}>
       {/* Header section */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./UsersTable.module.scss";
 import FilterButton from "@/assets/filterbutton.svg";
 import Icmore from "@/assets/icmore.svg";
@@ -7,8 +7,9 @@ import UserIcon from "@/assets/dropdownicons/user.svg";
 import ViewIcon from "@/assets/dropdownicons/view.svg";
 import { userTable } from "@/shared/dataTypes";
 
-import { getUsers } from "@/util/api";
+import { getUser, getUsers } from "@/util/api";
 import ReactPaginate from "react-paginate";
+import { Link } from "react-router-dom";
 
 type Props = {
   // users: userTable[];
@@ -18,6 +19,7 @@ const UserTable = (props: Props) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [data, setData] = useState<any>([]);
+  const tableRef = useRef<HTMLTableElement>(null)
 
   const itemsPerPage = 10;
 
@@ -25,7 +27,7 @@ const UserTable = (props: Props) => {
     const users = getUsers();
 
     const data = users.then((res) => {
-      console.log(res);
+      // console.log(res);
       setData(res);
     });
   }, []);
@@ -33,19 +35,23 @@ const UserTable = (props: Props) => {
   //pagination
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
     setItemOffset(newOffset);
+
+    //logic to scrollto top of table
+    const position = tableRef.current?.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: position, behavior: "smooth" });
   };
 
   return (
     <div>
       <div className={classes.container}>
-        <table>
+        <table ref={tableRef}>
           <thead>
             <tr>
               <th>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Sidebar.module.scss";
 import { customerSideBar } from "@/shared/sidebar";
 import { businessSideBar } from "@/shared/sidebar";
@@ -16,18 +16,20 @@ const Sidebar = (props: Props) => {
       <div className={classes.blocks}>
         <ul>
           <li>
-            <Link to="/dashboard">
+            <NavLink to="/switch" end className={classes.navitem}>
               <span>
                 <img src={Switch} alt="switch icon" />
               </span>{" "}
-              Switch Organization
-            </Link>
+              <span>Switch Organization</span>
+            </NavLink>
           </li>
           <li>
-            <span>
-              <img src={Dashboard} alt="dashboard icon" />
-            </span>{" "}
-            Dashboard
+            <NavLink to="/dashboard" end className={classes.navitem}>
+              <span>
+                <img src={Dashboard} alt="dashboard icon" />
+              </span>{" "}
+              <span>Dashboard</span>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -38,12 +40,12 @@ const Sidebar = (props: Props) => {
         {customerSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <Link to={item.title}>
+              <NavLink to={item.title} end className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="customer icons" />
                 </span>{" "}
-                {item.title}
-              </Link>
+                <span>{item.title}</span>
+              </NavLink>
             </li>
           </ul>
         ))}
@@ -55,12 +57,12 @@ const Sidebar = (props: Props) => {
         {businessSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <Link to={item.title}>
+              <NavLink to={item.title} end className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="business icons" />
                 </span>{" "}
-                {item.title}
-              </Link>
+                <span>{item.title}</span>
+              </NavLink>
             </li>
           </ul>
         ))}
@@ -71,14 +73,14 @@ const Sidebar = (props: Props) => {
         <h1>SETTINGS</h1>
         {settingsSideBar.map((item, index) => (
           <ul key={index}>
-            <Link to={item.title}>
-              <li>
+            <li>
+              <NavLink to={item.title} end className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="settings icons" />
                 </span>{" "}
-                {item.title}
-              </li>
-            </Link>
+                <span>{item.title}</span>
+              </NavLink>
+            </li>
           </ul>
         ))}
       </div>

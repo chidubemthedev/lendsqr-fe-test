@@ -101,3 +101,15 @@ a {
   color: $textPrimary;
   outline: none;
 }
+
+.active {
+  background-color: $greenPrimary;
+  //   opacity: 0.06;
+}
+
+.active::before {
+    content: "";
+    width: 0.5rem;
+    // height: 100%;
+    background-color: $bluePrimary
+  }
