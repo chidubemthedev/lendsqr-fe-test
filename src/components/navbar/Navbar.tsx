@@ -8,6 +8,7 @@ import Open from "@/assets/open_icon.svg";
 import Close from "@/assets/close_icon.svg";
 import classes from "./Navbar.module.scss";
 import Sidebar from "../sidebar/Sidebar";
+import MobileMenu from "./MobileMenu";
 
 type Props = {};
 
@@ -78,8 +79,9 @@ const Navbar = (props: Props) => {
               </button>
             </div>
           </div>
+
           <div>
-            <Sidebar />
+            <MobileMenu />
           </div>
         </div>
       )}

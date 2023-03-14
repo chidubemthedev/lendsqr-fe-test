@@ -7,12 +7,8 @@
   font-family: $workSans;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
   max-height: calc(100vh - 55px);
-  position: fixed;
+  // position: fixed;
   overflow: scroll;
-
-  @include Tablet {
-    display: none;
-  }
 
   ::-webkit-scrollbar {
     width: 20px;
@@ -24,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 1rem 0;
+
 
   h1 {
     font-style: normal;
@@ -63,7 +60,6 @@
 
         // &:active {
         //   background-color: $greenPrimary;
-        //   opacity: 1;
         // }
       }
 
