@@ -4,9 +4,16 @@
   display: flex;
   flex-direction: column;
   padding: 5%;
+  min-height: 100vh;
   background-color: #e5e5e5;
   font-family: $workSans;
-  width: calc(100% - 10%);
+  width: calc(90% - 200px);
+  margin-left: 200px;
+
+  @include Tablet {
+    margin-left: 0;
+    width: 90%;
+  }
 
 
   h1 {

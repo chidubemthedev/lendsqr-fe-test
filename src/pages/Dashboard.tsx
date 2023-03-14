@@ -14,7 +14,9 @@ const Dashboard = (props: Props) => {
     <>
       {/* <Navbar /> */}
       <div className={classes.container}>
+        <div className={classes.navbarcontainer}>
           <Navbar />
+        </div>
         
         <div className={classes.main}>
           <div className={classes.left}>

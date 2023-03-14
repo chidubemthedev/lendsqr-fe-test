@@ -12,14 +12,13 @@ import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 
 type Props = {
-  // users: userTable[];
 };
 
 const UserTable = (props: Props) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [data, setData] = useState<any>([]);
-  const tableRef = useRef<HTMLTableElement>(null)
+  const tableRef = useRef<HTMLTableElement>(null);
 
   const itemsPerPage = 10;
 
@@ -27,7 +26,6 @@ const UserTable = (props: Props) => {
     const users = getUsers();
 
     const data = users.then((res) => {
-      // console.log(res);
       setData(res);
     });
   }, []);
@@ -35,7 +33,6 @@ const UserTable = (props: Props) => {
   //pagination
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = data.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
@@ -44,7 +41,10 @@ const UserTable = (props: Props) => {
     setItemOffset(newOffset);
 
     //logic to scrollto top of table
-    const position = tableRef.current?.getBoundingClientRect().top + window.scrollY;
+    let position;
+    if (tableRef.current != undefined) {
+      position = tableRef.current?.getBoundingClientRect().top + window.scrollY;
+    }
     window.scrollTo({ top: position, behavior: "smooth" });
   };
 
@@ -160,11 +160,6 @@ const UserTable = (props: Props) => {
           previousLinkClassName={classes.previousLink}
           nextLinkClassName={classes.nextLink}
           disabledClassName={classes.disabled}
-          // marginPagesDisplayed={2}
-          // pageRangeDisplayed={5}
-          
-
-          // renderOnZeroPageCount={null}
         />
       </div>
     </div>

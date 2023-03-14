@@ -39,7 +39,7 @@ const Navbar = (props: Props) => {
           </li>
           <li>
             <div>
-              <img src={ProfilePic} alt="profile pic" />
+              <img className={classes.profileimage} src={ProfilePic} alt="profile pic" />
             </div>
           </li>
           <li>
