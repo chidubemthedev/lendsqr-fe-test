@@ -43,7 +43,7 @@ const UserTable = (props: Props) => {
     //logic to scrollto top of table
     let position;
     if (tableRef.current != undefined) {
-      position = tableRef.current?.getBoundingClientRect().top + window.scrollY;
+      position = tableRef.current?.getBoundingClientRect().top + window.scrollY - 55;
     }
     window.scrollTo({ top: position, behavior: "smooth" });
   };
