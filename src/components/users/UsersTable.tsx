@@ -105,7 +105,7 @@ const UserTable = (props: Props) => {
               currentItems?.map((user: any, index: number) => (
                 <tr key={index}>
                   <td>{user.organisation}</td>
-                  <Link to={`/dashboard/users/${index + 1}`}>
+                  <Link to={`/dashboard/users/${itemOffset + index + 1}`}>
                     <td>{user.username}</td>
                   </Link>
                   <td>{user.email}</td>

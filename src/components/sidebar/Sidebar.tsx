@@ -40,7 +40,7 @@ const Sidebar = (props: Props) => {
         {customerSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} end className={classes.navitem}>
+              <NavLink to={item.title} className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="customer icons" />
                 </span>{" "}
@@ -57,7 +57,7 @@ const Sidebar = (props: Props) => {
         {businessSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} end className={classes.navitem}>
+              <NavLink to={item.title} className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="business icons" />
                 </span>{" "}
@@ -74,7 +74,7 @@ const Sidebar = (props: Props) => {
         {settingsSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} end className={classes.navitem}>
+              <NavLink to={item.title} className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="settings icons" />
                 </span>{" "}
