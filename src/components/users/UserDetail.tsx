@@ -6,12 +6,15 @@ import StarFilled from "@/assets/userdetailicon/starfilled.svg";
 import StarOutline from "@/assets/userdetailicon/staroutline.svg";
 
 import { getUser } from "@/util/api";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-type Props = {};
+// type Props = {};
+interface UserDetailProps {
+  fromUserPage?: boolean;
+}
 
-const UserDetail = (props: Props) => {
+const UserDetail = ({ fromUserPage }: UserDetailProps) => {
   const [userDetail, setUserDetail] = useState<any>([]);
   const navigate = useNavigate();
 
@@ -24,16 +27,18 @@ const UserDetail = (props: Props) => {
       setUserDetail(response);
     };
     userInfo();
-    console.log(userDetail)
+    console.log(userDetail);
   }, [id]);
 
-   
+  const handleClickBack = () => {
+    navigate(-1, { state: { fromUserPage: true } });
+  };
 
   return (
     <div className={classes.container}>
       {/* Header section */}
       <div>
-        <button className={classes.backbutton} onClick={() => navigate(-1)}>
+        <button className={classes.backbutton} onClick={handleClickBack}>
           <span className={classes.span}>
             <img src={Backarrow} alt="go back" />
           </span>{" "}

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./UsersTable.module.scss";
 import FilterButton from "@/assets/filterbutton.svg";
 import Icmore from "@/assets/icmore.svg";
@@ -22,11 +22,17 @@ const UserTable = (props: Props) => {
   const itemsPerPage = 10;
 
   useEffect(() => {
-    const users = async (): Promise<void> => {
-      const response = await getUsers();
-      setData(response);
-    };
-    users();
+    const storedUsers = localStorage.getItem("users");
+    if (storedUsers) {
+      setData(JSON.parse(storedUsers));
+    } else {
+      const users = async (): Promise<void> => {
+        const response = await getUsers();
+        setData(response);
+        localStorage.setItem("users", JSON.stringify(response));
+      };
+      users();
+    }
   }, []);
 
   //pagination
@@ -47,8 +53,6 @@ const UserTable = (props: Props) => {
     }
     window.scrollTo({ top: position, behavior: "smooth" });
   };
-
-  const memoizedItems = useMemo(() => data, [data]);
 
   return (
     <div>
