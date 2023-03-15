@@ -7,30 +7,38 @@ import StarOutline from "@/assets/userdetailicon/staroutline.svg";
 
 import { getUser } from "@/util/api";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const UserDetail = (props: Props) => {
-  const [user, setUser] = useState<any>({});
-  const params = useParams();
-  const id = params.id;
+  const [userDetail, setUserDetail] = useState<any>([]);
+  const navigate = useNavigate();
+
+  const { id } = useParams();
   console.log(id);
 
-  // useEffect(() => {
-  //   const user = getUser(id!);
-  //   console.log(user);
-  // }, []);
+  useEffect(() => {
+    const userInfo = async () => {
+      const response = await getUser(Number(id));
+      setUserDetail(response);
+    };
+    userInfo();
+    console.log(userDetail)
+  }, [id]);
+
+   
 
   return (
     <div className={classes.container}>
       {/* Header section */}
       <div>
-        <a href="#">
+        <button className={classes.backbutton} onClick={() => navigate(-1)}>
           <span className={classes.span}>
             <img src={Backarrow} alt="go back" />
           </span>{" "}
-          Back to Users
-        </a>
+          <span>Back to Users</span>
+        </button>
         <div className={classes.header}>
           <h1>User Details</h1>
           <div>

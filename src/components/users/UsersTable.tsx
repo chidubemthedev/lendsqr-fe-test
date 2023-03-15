@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import classes from "./UsersTable.module.scss";
 import FilterButton from "@/assets/filterbutton.svg";
 import Icmore from "@/assets/icmore.svg";
@@ -7,34 +7,33 @@ import UserIcon from "@/assets/dropdownicons/user.svg";
 import ViewIcon from "@/assets/dropdownicons/view.svg";
 import { userTable } from "@/shared/dataTypes";
 
-import { getUser, getUsers } from "@/util/api";
+import { getUser, getUsers, User } from "@/util/api";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 
-type Props = {
-};
+type Props = {};
 
 const UserTable = (props: Props) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<User[] | null>(null);
   const tableRef = useRef<HTMLTableElement>(null);
 
   const itemsPerPage = 10;
 
   useEffect(() => {
-    const users = getUsers();
-
-    const data = users.then((res) => {
-      setData(res);
-    });
+    const users = async (): Promise<void> => {
+      const response = await getUsers();
+      setData(response);
+    };
+    users();
   }, []);
 
   //pagination
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = data.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(data.length / itemsPerPage);
+  const currentItems = data?.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(data?.length / itemsPerPage);
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
@@ -43,10 +42,13 @@ const UserTable = (props: Props) => {
     //logic to scrollto top of table
     let position;
     if (tableRef.current != undefined) {
-      position = tableRef.current?.getBoundingClientRect().top + window.scrollY - 55;
+      position =
+        tableRef.current?.getBoundingClientRect().top + window.scrollY - 55;
     }
     window.scrollTo({ top: position, behavior: "smooth" });
   };
+
+  const memoizedItems = useMemo(() => data, [data]);
 
   return (
     <div>
@@ -96,10 +98,12 @@ const UserTable = (props: Props) => {
 
           <tbody>
             {data &&
-              currentItems.map((user: any, index: number) => (
+              currentItems?.map((user: any, index: number) => (
                 <tr key={index}>
                   <td>{user.organisation}</td>
-                  <td>{user.username}</td>
+                  <Link to={`/dashboard/users/${index + 1}`}>
+                    <td>{user.username}</td>
+                  </Link>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>{user.dateJoined}</td>
@@ -142,7 +146,7 @@ const UserTable = (props: Props) => {
         <div className={classes.paginationinfo}>
           <p>Showing</p>
           <p className={classes.showing}>{itemOffset + itemsPerPage}</p>
-          <p>out of {data.length}</p>
+          <p>out of {data?.length}</p>
         </div>
         <ReactPaginate
           breakLabel="..."

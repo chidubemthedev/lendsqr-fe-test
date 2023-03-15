@@ -19,7 +19,7 @@ const routes = createBrowserRouter(
       <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<Users />} />
         <Route path="users" element={<Users />} />
-        <Route path="users/:userId" element={<UserDetail />} />
+        <Route path="users/:id" element={<UserDetail />} />
       </Route>
     </>
   )
