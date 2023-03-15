@@ -1,14 +1,14 @@
 export const customerSideBar = [
   {
-    icon: "/src/assets/customersidelist/users.svg",
+    icon: "../../src/assets/customersidelist/users.svg",
     title: "Users",
   },
   {
-    icon: "/src/assets/customersidelist/guarantors.svg",
+    icon: "../../src/assets/customersidelist/guarantors.svg",
     title: "Guarantors",
   },
   {
-    icon: "/src/assets/customersidelist/loans.svg",
+    icon: "../../src/assets/customersidelist/loans.svg",
     title: "Loans",
   },
   {
