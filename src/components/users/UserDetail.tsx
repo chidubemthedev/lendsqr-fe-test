@@ -8,6 +8,7 @@ import StarOutline from "@/assets/userdetailicon/staroutline.svg";
 import { getUser } from "@/util/api";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { UserDetails } from "@/shared/dataTypes";
 
 // type Props = {};
 interface UserDetailProps {
@@ -15,7 +16,7 @@ interface UserDetailProps {
 }
 
 const UserDetail = ({ fromUserPage }: UserDetailProps) => {
-  const [userDetail, setUserDetail] = useState<any>([]);
+  const [userDetail, setUserDetail] = useState<UserDetails>();
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -33,6 +34,8 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
   const handleClickBack = () => {
     navigate(-1, { state: { fromUserPage: true } });
   };
+
+  const loading: string = "xxx-xxx-xxx";
 
   return (
     <div className={classes.container}>
@@ -57,10 +60,10 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
       <div className={classes.info}>
         <div className={classes.profileinfo}>
           <div>
-            <img src={Avatar} alt="profile image" />
+            <img src={userDetail ? userDetail.profile.avatar: Avatar} alt="profile image" />
           </div>
           <div>
-            <h1>Grace Effiom</h1>
+            <h1>{`${userDetail ? userDetail.profile.firstName: loading} ${userDetail ? userDetail.profile.lastName : loading}`}</h1>
             <p>LSQFf587g90</p>
           </div>
         </div>
@@ -73,8 +76,8 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           </div>
         </div>
         <div className={classes.profilebalance}>
-          <h1>₦200,000.00</h1>
-          <p>9912345678/Providus Bank</p>
+          <h1>₦{userDetail ? userDetail.accountBalance : loading}</h1>
+          <p>{userDetail ? userDetail.accountNumber : loading}/Providus Bank</p>
         </div>
       </div>
 
@@ -98,23 +101,23 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           <div className={classes.detailssection}>
             <div>
               <h2>full Name</h2>
-              <p>Grace Effiom</p>
+              <p>{`${userDetail ? userDetail.profile.firstName : loading} ${userDetail ? userDetail.profile.lastName : loading}`}</p>
             </div>
             <div>
               <h2>Phone Number</h2>
-              <p>07060780922</p>
+              <p>{userDetail ? userDetail.phoneNumber : loading}</p>
             </div>
             <div>
               <h2>Email Address</h2>
-              <p>grace@gmail.com</p>
+              <p>{userDetail ? userDetail.email : loading}</p>
             </div>
             <div>
               <h2>Bvn</h2>
-              <p>07060780922</p>
+              <p>{userDetail ? userDetail.profile.bvn : loading}</p>
             </div>
             <div>
               <h2>Gender</h2>
-              <p>Female</p>
+              <p>{userDetail ? userDetail.profile.gender : loading}</p>
             </div>
             <div>
               <h2>Marital status</h2>
@@ -137,31 +140,31 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           <div className={classes.detailssection}>
             <div>
               <h2>level of education</h2>
-              <p>B.Sc</p>
+              <p>{userDetail ? userDetail.education.level : loading}</p>
             </div>
             <div>
               <h2>Employment status</h2>
-              <p>Employed</p>
+              <p>{userDetail ? userDetail.education.employmentStatus : loading}</p>
             </div>
             <div>
               <h2>sector of employment</h2>
-              <p>FinTech</p>
+              <p>{userDetail ? userDetail.education.sector : loading}</p>
             </div>
             <div>
               <h2>Duration of employment</h2>
-              <p>2 years</p>
+              <p>{userDetail ? userDetail.education.duration : loading}</p>
             </div>
             <div>
               <h2>office email</h2>
-              <p>grace@lendsqr.com</p>
+              <p>{userDetail ? userDetail.education.officeEmail : loading}</p>
             </div>
             <div>
               <h2>Monthly income</h2>
-              <p>₦200,000.00- ₦400,000.00</p>
+              <p>{`₦${userDetail ? userDetail.education.monthlyIncome[0] : loading} - ₦${userDetail ? userDetail.education.monthlyIncome[1] : loading}`}</p>
             </div>
             <div>
               <h2>loan repayment</h2>
-              <p>40,000</p>
+              <p>₦{userDetail ? userDetail.education.loanRepayment : loading}</p>
             </div>
           </div>
         </div>
@@ -172,15 +175,15 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           <div className={classes.detailssection}>
             <div>
               <h2>Twitter</h2>
-              <p>@grace_effiom</p>
+              <p>{userDetail ? userDetail.socials.twitter : loading}</p>
             </div>
             <div>
               <h2>Facebook</h2>
-              <p>Grace Effiom</p>
+              <p>{userDetail ? userDetail.socials.facebook : loading}</p>
             </div>
             <div>
               <h2>Instagram</h2>
-              <p>@grace_effiom</p>
+              <p>{userDetail ? userDetail.socials.instagram : loading}</p>
             </div>
           </div>
         </div>
@@ -191,19 +194,19 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           <div className={classes.detailssection}>
             <div>
               <h2>full Name</h2>
-              <p>Debby Ogana</p>
+              <p>{`${userDetail ? userDetail.guarantor.firstName : loading} ${userDetail ? userDetail.guarantor.lastName : loading}`}</p>
             </div>
             <div>
               <h2>Phone Number</h2>
-              <p>07060780922</p>
+              <p>{userDetail ? userDetail.guarantor.phoneNumber : loading}</p>
             </div>
             <div>
-              <h2>Email Address</h2>
-              <p>debby@gmail.com</p>
+              <h2>Address</h2>
+              <p>{userDetail ? userDetail.guarantor.address : loading}</p>
             </div>
             <div>
               <h2>Relationship</h2>
-              <p>Sister</p>
+              <p>{userDetail ? userDetail.guarantor.gender : loading}</p>
             </div>
           </div>
         </div>

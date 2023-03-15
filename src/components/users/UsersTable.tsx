@@ -7,7 +7,7 @@ import UserIcon from "@/assets/dropdownicons/user.svg";
 import ViewIcon from "@/assets/dropdownicons/view.svg";
 import { userTable } from "@/shared/dataTypes";
 
-import { getUser, getUsers, User } from "@/util/api";
+import { getUser, getUsers } from "@/util/api";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ type Props = {};
 const UserTable = (props: Props) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
-  const [data, setData] = useState<User[] | null>(null);
+  const [data, setData] = useState<userTable[] | null>(null);
   const tableRef = useRef<HTMLTableElement>(null);
 
   const itemsPerPage = 10;
