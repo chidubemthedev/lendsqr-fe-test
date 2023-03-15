@@ -23,15 +23,21 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
   console.log(id);
 
   useEffect(() => {
-    const userInfo = async () => {
-      const response = await getUser(Number(id));
-      setUserDetail(response);
-    };
-    userInfo();
-    console.log(userDetail);
+    const storedUserDetail = localStorage.getItem(`userDetail-${id}`);
+    if (storedUserDetail) {
+      setUserDetail(JSON.parse(storedUserDetail));
+    } else {
+      const userInfo = async () => {
+        const response = await getUser(Number(id));
+        setUserDetail(response);
+        localStorage.setItem(`userDetail-${id}`, JSON.stringify(response));
+      };
+      userInfo();
+      console.log(userDetail);
+    }
   }, [id]);
 
-  const handleClickBack = () => {
+  const handleClickBack = (): void => {
     navigate(-1, { state: { fromUserPage: true } });
   };
 
@@ -60,10 +66,15 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
       <div className={classes.info}>
         <div className={classes.profileinfo}>
           <div>
-            <img src={userDetail ? userDetail.profile.avatar: Avatar} alt="profile image" />
+            <img
+              src={userDetail ? userDetail.profile.avatar : Avatar}
+              alt="profile image"
+            />
           </div>
           <div>
-            <h1>{`${userDetail ? userDetail.profile.firstName: loading} ${userDetail ? userDetail.profile.lastName : loading}`}</h1>
+            <h1>{`${userDetail ? userDetail.profile.firstName : loading} ${
+              userDetail ? userDetail.profile.lastName : loading
+            }`}</h1>
             <p>LSQFf587g90</p>
           </div>
         </div>
@@ -101,7 +112,9 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           <div className={classes.detailssection}>
             <div>
               <h2>full Name</h2>
-              <p>{`${userDetail ? userDetail.profile.firstName : loading} ${userDetail ? userDetail.profile.lastName : loading}`}</p>
+              <p>{`${userDetail ? userDetail.profile.firstName : loading} ${
+                userDetail ? userDetail.profile.lastName : loading
+              }`}</p>
             </div>
             <div>
               <h2>Phone Number</h2>
@@ -144,7 +157,9 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
             </div>
             <div>
               <h2>Employment status</h2>
-              <p>{userDetail ? userDetail.education.employmentStatus : loading}</p>
+              <p>
+                {userDetail ? userDetail.education.employmentStatus : loading}
+              </p>
             </div>
             <div>
               <h2>sector of employment</h2>
@@ -160,11 +175,17 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
             </div>
             <div>
               <h2>Monthly income</h2>
-              <p>{`₦${userDetail ? userDetail.education.monthlyIncome[0] : loading} - ₦${userDetail ? userDetail.education.monthlyIncome[1] : loading}`}</p>
+              <p>{`₦${
+                userDetail ? userDetail.education.monthlyIncome[0] : loading
+              } - ₦${
+                userDetail ? userDetail.education.monthlyIncome[1] : loading
+              }`}</p>
             </div>
             <div>
               <h2>loan repayment</h2>
-              <p>₦{userDetail ? userDetail.education.loanRepayment : loading}</p>
+              <p>
+                ₦{userDetail ? userDetail.education.loanRepayment : loading}
+              </p>
             </div>
           </div>
         </div>
@@ -194,7 +215,9 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
           <div className={classes.detailssection}>
             <div>
               <h2>full Name</h2>
-              <p>{`${userDetail ? userDetail.guarantor.firstName : loading} ${userDetail ? userDetail.guarantor.lastName : loading}`}</p>
+              <p>{`${userDetail ? userDetail.guarantor.firstName : loading} ${
+                userDetail ? userDetail.guarantor.lastName : loading
+              }`}</p>
             </div>
             <div>
               <h2>Phone Number</h2>
