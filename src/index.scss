@@ -104,11 +104,11 @@ a {
 
 .active {
   background-color: $greenPrimary;
-    opacity: 1;
+  opacity: 1;
 }
 
 .active::before {
-    content: "";
-    width: 0.5rem;
-    background-color: $bluePrimary
-  }
+  content: "";
+  width: 0.5rem;
+  background-color: $bluePrimary;
+}

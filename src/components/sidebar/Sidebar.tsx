@@ -6,10 +6,14 @@ import { businessSideBar } from "@/shared/sidebar";
 import { settingsSideBar } from "@/shared/sidebar";
 import Switch from "@/assets/switch.svg";
 import Dashboard from "@/assets/dashboard.svg";
+import { json } from "node:stream/consumers";
 
 type Props = {};
 
 const Sidebar = (props: Props) => {
+
+  console.log("customerSideBar", JSON.stringify(customerSideBar, null, 2));
+
   return (
     <div className={`${classes.container} ${classes.scroll}`}>
       {/* Main section */}
@@ -37,7 +41,10 @@ const Sidebar = (props: Props) => {
       {/* Customer section */}
       <div className={classes.blocks}>
         <h1>CUSTOMERS</h1>
+        {/* <img src="/src/assets/customersidelist/users.svg" alt="" /> */}
         {customerSideBar.map((item, index) => (
+          <>
+          {console.log(item)}
           <ul key={index}>
             <li>
               <NavLink to={item.title} className={classes.navitem}>
@@ -47,7 +54,7 @@ const Sidebar = (props: Props) => {
                 <span>{item.title}</span>
               </NavLink>
             </li>
-          </ul>
+          </ul></>
         ))}
       </div>
 

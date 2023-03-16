@@ -4,11 +4,11 @@ export const customerSideBar = [
     title: "Users",
   },
   {
-    icon: "../../src/assets/customersidelist/guarantors.svg",
+    icon: "/src/assets/customersidelist/guarantors.svg",
     title: "Guarantors",
   },
   {
-    icon: "../../src/assets/customersidelist/loans.svg",
+    icon: "/src/assets/customersidelist/loans.svg",
     title: "Loans",
   },
   {

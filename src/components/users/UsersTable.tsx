@@ -6,8 +6,7 @@ import DeleteIcon from "@/assets/dropdownicons/delfriend.svg";
 import UserIcon from "@/assets/dropdownicons/user.svg";
 import ViewIcon from "@/assets/dropdownicons/view.svg";
 import { userTable } from "@/shared/dataTypes";
-
-import { getUser, getUsers } from "@/util/api";
+import { getUsers } from "@/util/api";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 
@@ -52,7 +51,7 @@ const UserTable = (props: Props) => {
     let position;
     if (tableRef.current != undefined) {
       position =
-        tableRef.current?.getBoundingClientRect().top + window.scrollY - 55;
+        tableRef.current?.getBoundingClientRect().top + window.scrollY - 70;
     }
     window.scrollTo({ top: position, behavior: "smooth" });
   };
