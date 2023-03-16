@@ -1,1 +1,86 @@
 @import "@/index.scss";
+
+.container {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 1rem;
+  width: 270px;
+  z-index: 1;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+}
+
+.filterBody {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    label {
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: $textPrimary;
+    }
+
+    input {
+      @include input;
+      height: 40px;
+      width: calc(270px - 12px);
+      background: #ffffff;
+      opacity: 0.5;
+      border: 1px solid $bluePrimary;
+      border-radius: 8px;
+      padding-left: 3%;
+    }
+
+    select {
+      height: 40px;
+      opacity: 0.5;
+      border: 1px solid $bluePrimary;
+      border-radius: 8px;
+      padding-left: 3%;
+    }
+  }
+
+  .buttondiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5%;
+    margin-top: 2rem;
+
+    .resetbutton {
+      font-family: $workSans;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+      color: $textPrimary;
+      background-color: #ffffff;
+      width: 40%;
+      height: 40px;
+      border: 1px solid $textPrimary;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .filterbutton {
+      font-family: $workSans;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+      color: #ffffff;
+      background-color: $greenPrimary;
+      width: 40%;
+      height: 40px;
+      border: 1px solid $greenPrimary;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}

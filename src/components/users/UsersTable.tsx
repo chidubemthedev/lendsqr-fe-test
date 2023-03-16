@@ -9,6 +9,7 @@ import { userTable } from "@/shared/dataTypes";
 import { getUsers } from "@/util/api";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import FilterPopup from "./FilterPopup";
 
 type Props = {};
 
@@ -69,7 +70,7 @@ const UserTable = (props: Props) => {
             <tr>
               <th>
                 Organization{" "}
-                <span>
+                <span onClick={() => setToggleFilter(!toggleFilter)}>
                   <img src={FilterButton} alt="filter button" />
                 </span>
               </th>
@@ -106,6 +107,11 @@ const UserTable = (props: Props) => {
               {/* <th></th> */}
             </tr>
           </thead>
+          {toggleFilter && (
+            <div>
+              <FilterPopup />
+            </div>
+          )}
 
           <tbody>
             {data &&
