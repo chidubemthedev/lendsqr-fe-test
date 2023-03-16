@@ -42,7 +42,7 @@ const Sidebar = (props: Props) => {
             <li>
               <NavLink to={item.title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="customer icons" />
+                  <img src={item.icon} alt="icon" />
                 </span>{" "}
                 <span>{item.title}</span>
               </NavLink>
@@ -59,7 +59,7 @@ const Sidebar = (props: Props) => {
             <li>
               <NavLink to={item.title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="business icons" />
+                  <img src={item.icon} alt="icon" />
                 </span>{" "}
                 <span>{item.title}</span>
               </NavLink>
@@ -76,7 +76,7 @@ const Sidebar = (props: Props) => {
             <li>
               <NavLink to={item.title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="settings icons" />
+                  <img src={item.icon} alt="icon" />
                 </span>{" "}
                 <span>{item.title}</span>
               </NavLink>

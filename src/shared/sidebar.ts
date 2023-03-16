@@ -1,6 +1,6 @@
 export const customerSideBar = [
   {
-    icon: "../../src/assets/customersidelist/users.svg",
+    icon: "/src/assets/customersidelist/users.svg",
     title: "Users",
   },
   {

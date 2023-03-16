@@ -39,7 +39,7 @@ const Login = (props: Props) => {
       setLoading(true);
       console.log(`Email: ${email}, Password: ${password}`);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/dashboard/users");
       }, 2000);
     }
   };
@@ -63,9 +63,12 @@ const Login = (props: Props) => {
 
         <div className={classes.formcontainer}>
           <div className={classes.form}>
+            <div className={classes.formheader}>
             <h1>Welcome!</h1>
             <div>Enter details to login.</div>
+            </div>
             <form onSubmit={handleSubmit}>
+              <div className={classes.inputdiv}>
               <input type="email" placeholder="Email" ref={emailRef} />
               {emailError && <p className={classes.error}>{emailError}</p>}
 
@@ -74,9 +77,10 @@ const Login = (props: Props) => {
                 placeholder="Password"
                 ref={passwordRef}
               />
-              <p className={classes.password_icon} onClick={showHandler}>
+              <label className={classes.password_icon} onClick={showHandler}>
                 SHOW
-              </p>
+              </label>
+              </div>
               {passwordError && (
                 <p className={classes.error}>{passwordError}</p>
               )}

@@ -1,8 +1,13 @@
 @import "@/index.scss";
 
 .logo {
+  display: flex;
   padding-top: 5%;
   padding-left: 5%;
+
+  @include Tablet {
+    justify-content: center;
+  }
 }
 
 .container {
@@ -15,6 +20,7 @@
 
 .banner {
   width: 50%;
+ 
 
   div {
     img {
@@ -38,16 +44,40 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    // position: relative;
     padding: 0 20%;
+
+    .formheader {
+      display: flex;
+      flex-direction: column;
+
+      @include Tablet {
+        align-items: center;
+      }
+    }
 
     h1 {
       font-family: $avenirNextBold;
       font-style: normal;
       font-weight: 700;
       font-size: 40px;
-      line-height: 55px;
+      // line-height: 55px;
       letter-spacing: -0.04em;
       color: $bluePrimary;
+
+      @media (max-width: 343px) {
+        font-size: 30px;
+      }
+    }
+
+    label {
+      font-family: $avenirNext;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      color: $greenPrimary;
+      letter-spacing: 0.1em;
+      // margin-top: 5%;
     }
 
     div {
@@ -57,6 +87,12 @@
       font-size: 20px;
       line-height: 27px;
       color: $textPrimary;
+    }
+
+    form {
+      .inputdiv {
+        position: relative;
+      }
     }
 
     input {
@@ -90,15 +126,22 @@
 
     .password_icon {
       position: absolute;
-      right: 10%;
-      top: 52.5%;
+      right: 0%;
+      top: 75%;
       //   transform: translateY(-50%);
       //   font-size: 12px;
       //   color: $greenPrimary;
       //   font-weight: 700;
       cursor: pointer;
+
       @include Tablet {
-        right: 20%;
+        top: 78%;
+      }
+
+     
+
+      @media (max-width: 343px) {
+        top: 75%;
       }
     }
 
