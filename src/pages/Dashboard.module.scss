@@ -1,50 +1,25 @@
 @import "@/index.scss";
 
-// .container {
-//     display: flex;
-//     flex-direction: column;
-//     width: 100%;
-// }
-
-// .main {
-//     display: flex;
-//     width: 100%;
-
-//     .left {
-//         min-width: fit-content;
-//     }
-
-//     .right {
-//         display: flex;
-//     }
-// }
-
 .container {
-    // display: flex;
-    // flex-direction: column;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .navbarcontainer {
-    // position: fixed;
-    width: 100%;
-    height: 70px;
+  width: 100%;
+  height: 70px;
 }
 
 .main {
-    // display: flex;
-    // flex-direction: row;
-    width: 100%;
+  width: 100%;
 
-    .left {
-        // display: inline-block;
-        float: left;
-        width: 250px;
-    }
+  .left {
+    float: left;
+    width: 250px;
+  }
 
-    .right {
-        display: flex;
-    }
+  .right {
+    display: flex;
+  }
 }

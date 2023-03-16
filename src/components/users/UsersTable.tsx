@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classes from "./UsersTable.module.scss";
-import FilterButton from "@/assets/filterbutton.svg";
-import Icmore from "@/assets/icmore.svg";
-import DeleteIcon from "@/assets/dropdownicons/delfriend.svg";
-import UserIcon from "@/assets/dropdownicons/user.svg";
-import ViewIcon from "@/assets/dropdownicons/view.svg";
+import { ReactComponent as FilterButton } from "@/assets/filterbutton.svg";
+import { ReactComponent as Icmore } from "@/assets/icmore.svg";
+import { ReactComponent as DeleteIcon } from "@/assets/dropdownicons/delfriend.svg";
+import { ReactComponent as UserIcon } from "@/assets/dropdownicons/user.svg";
+import { ReactComponent as ViewIcon } from "@/assets/dropdownicons/view.svg";
 import { userTable } from "@/shared/dataTypes";
 import { getUsers } from "@/util/api";
 import ReactPaginate from "react-paginate";
@@ -14,7 +14,6 @@ import FilterPopup from "./FilterPopup";
 type Props = {};
 
 const UserTable = (props: Props) => {
-  // const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<number | null>(null);
 
@@ -71,40 +70,39 @@ const UserTable = (props: Props) => {
               <th>
                 Organization{" "}
                 <span onClick={() => setToggleFilter(!toggleFilter)}>
-                  <img src={FilterButton} alt="filter button" />
+                  <FilterButton />
                 </span>
               </th>
               <th>
                 Username{" "}
                 <span>
-                  <img src={FilterButton} alt="filter button" />
+                  <FilterButton />
                 </span>
               </th>
               <th>
                 Email{" "}
                 <span>
-                  <img src={FilterButton} alt="filter button" />
+                  <FilterButton />
                 </span>
               </th>
               <th>
                 Phone number{" "}
                 <span>
-                  <img src={FilterButton} alt="filter button" />
+                  <FilterButton />
                 </span>
               </th>
               <th>
                 Date joined{" "}
                 <span>
-                  <img src={FilterButton} alt="filter button" />
+                  <FilterButton />
                 </span>
               </th>
               <th>
                 Status{" "}
                 <span>
-                  <img src={FilterButton} alt="filter button" />
+                  <FilterButton />
                 </span>
               </th>
-              {/* <th></th> */}
             </tr>
           </thead>
           {toggleFilter && (
@@ -118,31 +116,36 @@ const UserTable = (props: Props) => {
               currentItems?.map((user: any, index: number) => (
                 <tr key={index}>
                   <td>{user.organisation}</td>
-                    <td><Link to={`/dashboard/users/${itemOffset + index + 1}`}>{user.username}</Link></td>
+                  <td>
+                    <Link to={`/dashboard/users/${itemOffset + index + 1}`}>
+                      {user.username}
+                    </Link>
+                  </td>
                   <td>{user.email}</td>
                   <td>{user.phone}</td>
                   <td>{user.dateJoined}</td>
                   <td>Inactive</td>
                   <td>
-                    <img
+                    <Icmore
                       onClick={() => handleOptionsClick(itemOffset + index + 1)}
-                      src={Icmore}
-                      alt="more options button"
                     />
                   </td>
                   {showPopup === itemOffset + index + 1 && (
                     <div className={classes.dropdown}>
                       <ul>
-                        <Link className={classes.link} to={`/dashboard/users/${itemOffset + index + 1}`}>
-                          <img src={ViewIcon} alt="view icon" />
+                        <Link
+                          className={classes.link}
+                          to={`/dashboard/users/${itemOffset + index + 1}`}
+                        >
+                          <ViewIcon />
                           <span>View Details</span>
                         </Link>
                         <li>
-                          <img src={DeleteIcon} alt="view icon" />
+                          <DeleteIcon />
                           <span>Blacklist User</span>
                         </li>
                         <li>
-                          <img src={UserIcon} alt="view icon" />
+                          <UserIcon />
                           <span>Activate User</span>
                         </li>
                       </ul>

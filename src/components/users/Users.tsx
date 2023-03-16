@@ -1,31 +1,20 @@
-import React from 'react'
-import UsersBoard from './UsersBoard'
-import classes from './Users.module.scss'
-import UsersTable from './UsersTable'
-import { getUsers } from "@/util/api";
-import { useLoaderData } from "react-router-dom";
+import UsersBoard from "./UsersBoard";
+import classes from "./Users.module.scss";
+import UsersTable from "./UsersTable";
 
-type Props = {}
+type Props = {};
 
 const Users = (props: Props) => {
-  // const loaderData = useLoaderData();
-
-  // console.log(loaderData);
-
   return (
     <div className={classes.container}>
-        <h1>Users</h1>
-        <UsersBoard />
+      <h1>Users</h1>
+      <UsersBoard />
 
-        <div>
-            <UsersTable />
-        </div>
+      <div>
+        <UsersTable />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Users
-
-// export function loader() {
-//   return getUsers();
-// }
+export default Users;

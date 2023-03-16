@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./MobileMenu.module.scss";
-import Switch from "@/assets/switch.svg";
-import Dashboard from "@/assets/dashboard.svg";
+import { ReactComponent as Switch } from "@/assets/switch.svg";
+import { ReactComponent as Dashboard } from "@/assets/dashboard.svg";
 import { customerSideBar } from "@/shared/sidebar";
 import { businessSideBar } from "@/shared/sidebar";
 import { settingsSideBar } from "@/shared/sidebar";
@@ -11,8 +11,7 @@ type Props = {
   setToggleMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const MobileMenu = ({setToggleMenu}: Props) => {
-
+const MobileMenu = ({ setToggleMenu }: Props) => {
   const setHandler = () => {
     setToggleMenu(false);
   };
@@ -25,7 +24,7 @@ const MobileMenu = ({setToggleMenu}: Props) => {
           <li>
             <NavLink to="/switch" end className={classes.navitem}>
               <span>
-                <img src={Switch} alt="switch icon" />
+                <Switch />
               </span>{" "}
               <span>Switch Organization</span>
             </NavLink>
@@ -33,7 +32,7 @@ const MobileMenu = ({setToggleMenu}: Props) => {
           <li>
             <NavLink to="/dashboard" end className={classes.navitem}>
               <span>
-                <img src={Dashboard} alt="dashboard icon" />
+                <Dashboard />
               </span>{" "}
               <span>Dashboard</span>
             </NavLink>
@@ -44,14 +43,18 @@ const MobileMenu = ({setToggleMenu}: Props) => {
       {/* Customer section */}
       <div className={classes.blocks}>
         <h1>CUSTOMERS</h1>
-        {customerSideBar.map((item, index) => (
+        {customerSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} onClick={setHandler} className={classes.navitem}>
+              <NavLink
+                to={title}
+                onClick={setHandler}
+                className={classes.navitem}
+              >
                 <span>
-                  <img src={item.icon} alt="customer icons" />
+                  <Icon />
                 </span>{" "}
-                <span>{item.title}</span>
+                <span>{title}</span>
               </NavLink>
             </li>
           </ul>
@@ -61,14 +64,14 @@ const MobileMenu = ({setToggleMenu}: Props) => {
       {/* Business section */}
       <div className={classes.blocks}>
         <h1>BUSINESSES</h1>
-        {businessSideBar.map((item, index) => (
+        {businessSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} className={classes.navitem}>
+              <NavLink to={title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="business icons" />
+                  <Icon />
                 </span>{" "}
-                <span>{item.title}</span>
+                <span>{title}</span>
               </NavLink>
             </li>
           </ul>
@@ -78,14 +81,14 @@ const MobileMenu = ({setToggleMenu}: Props) => {
       {/* Settings section */}
       <div className={classes.blocks}>
         <h1>SETTINGS</h1>
-        {settingsSideBar.map((item, index) => (
+        {settingsSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} className={classes.navitem}>
+              <NavLink to={title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="settings icons" />
+                  <Icon />
                 </span>{" "}
-                <span>{item.title}</span>
+                <span>{title}</span>
               </NavLink>
             </li>
           </ul>

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Logo from "@/assets/logo.svg";
+import { ReactComponent as Logo } from "@/assets/logo.svg";
 import Search from "@/assets/search_icon.png";
 import Bell from "@/assets/nav_notif_icon.png";
 import ProfilePic from "@/assets/profile_image.png";
 import Dropdown from "@/assets/nav_dropdown.png";
-import Open from "@/assets/open_icon.svg";
-import Close from "@/assets/close_icon.svg";
+import { ReactComponent as Open } from "@/assets/open_icon.svg";
+import { ReactComponent as Close } from "@/assets/close_icon.svg";
 import classes from "./Navbar.module.scss";
-import Sidebar from "../sidebar/Sidebar";
 import MobileMenu from "./MobileMenu";
 
 type Props = {};
@@ -20,7 +19,7 @@ const Navbar = (props: Props) => {
       {/* first half of div */}
       <div className={classes.nav_left}>
         <div>
-          <img src={Logo} alt="brand logo" />
+          <Logo />
         </div>
 
         <div className={classes.search}>
@@ -40,7 +39,11 @@ const Navbar = (props: Props) => {
           </li>
           <li>
             <div>
-              <img className={classes.profileimage} src={ProfilePic} alt="profile pic" />
+              <img
+                className={classes.profileimage}
+                src={ProfilePic}
+                alt="profile pic"
+              />
             </div>
           </li>
           <li>
@@ -53,10 +56,9 @@ const Navbar = (props: Props) => {
           </li>
 
           <div>
-            <img
+            <Open
+              className={classes.img}
               onClick={() => setToggleMenu(!toggleMenu)}
-              src={Open}
-              alt="open mobile menu"
             />
           </div>
         </ul>
@@ -66,12 +68,11 @@ const Navbar = (props: Props) => {
       {toggleMenu && (
         <div className={classes.mobile}>
           <div className={classes.mobile_head}>
-            <img className={classes.close}
+            <Close
+              className={classes.close}
               onClick={() => setToggleMenu(!toggleMenu)}
-              src={Close}
-              alt="close icon"
             />
-            <img src={Logo} alt="brand logo" />
+            <Logo />
             <div className={classes.search}>
               <input type="text" placeholder="Search for anything" />
               <button>

@@ -1,11 +1,10 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Sidebar.module.scss";
 import { customerSideBar } from "@/shared/sidebar";
 import { businessSideBar } from "@/shared/sidebar";
 import { settingsSideBar } from "@/shared/sidebar";
-import Switch from "@/assets/switch.svg";
-// import { ReactComponent as Dashboard } from "../../assets/dashboard.svg";
+import { ReactComponent as Switch } from "@/assets/switch.svg";
+import { ReactComponent as Dashboard } from "../../assets/dashboard.svg";
 
 type Props = {};
 
@@ -17,13 +16,17 @@ const Sidebar = (props: Props) => {
         <ul>
           <li>
             <NavLink to="/switch" end className={classes.navitem}>
-              <span>{/* <img src={Switch} alt="switch icon" /> */}</span>{" "}
+              <span>
+                <Switch />
+              </span>{" "}
               <span>Switch Organization</span>
             </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard" end className={classes.navitem}>
-              <span>{/* <img src={Dashboard} alt="dashboard icon" /> */}</span>{" "}
+              <span>
+                <Dashboard />
+              </span>{" "}
               <span>Dashboard</span>
             </NavLink>
           </li>
@@ -38,7 +41,6 @@ const Sidebar = (props: Props) => {
             <li>
               <NavLink to={title} className={classes.navitem}>
                 <span>
-                  {/* <img src={item.icon} alt="icon" /> */}
                   <Icon />
                 </span>{" "}
                 <span>{title}</span>
@@ -51,14 +53,14 @@ const Sidebar = (props: Props) => {
       {/* Business section */}
       <div className={classes.blocks}>
         <h1>BUSINESSES</h1>
-        {businessSideBar.map((item, index) => (
+        {businessSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} className={classes.navitem}>
+              <NavLink to={title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="icon" />
+                  <Icon />
                 </span>{" "}
-                <span>{item.title}</span>
+                <span>{title}</span>
               </NavLink>
             </li>
           </ul>
@@ -68,14 +70,14 @@ const Sidebar = (props: Props) => {
       {/* Settings section */}
       <div className={classes.blocks}>
         <h1>SETTINGS</h1>
-        {settingsSideBar.map((item, index) => (
+        {settingsSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} className={classes.navitem}>
+              <NavLink to={title} className={classes.navitem}>
                 <span>
-                  <img src={item.icon} alt="icon" />
+                  <Icon />
                 </span>{" "}
-                <span>{item.title}</span>
+                <span>{title}</span>
               </NavLink>
             </li>
           </ul>

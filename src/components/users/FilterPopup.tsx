@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./FilterPopup.module.scss";
 
 type Props = {};
@@ -31,7 +30,12 @@ const FilterPopup = (props: Props) => {
 
         <div>
           <label htmlFor="phone">Phone Number</label>
-          <input type="number" name="phone" id="phone" placeholder="Phone Number" />
+          <input
+            type="number"
+            name="phone"
+            id="phone"
+            placeholder="Phone Number"
+          />
         </div>
 
         <div>
@@ -42,8 +46,12 @@ const FilterPopup = (props: Props) => {
         </div>
 
         <div className={classes.buttondiv}>
-          <button className={classes.resetbutton} type="reset">Reset</button>
-          <button className={classes.filterbutton} type="submit">Filter</button>
+          <button className={classes.resetbutton} type="reset">
+            Reset
+          </button>
+          <button className={classes.filterbutton} type="submit">
+            Filter
+          </button>
         </div>
       </form>
     </div>

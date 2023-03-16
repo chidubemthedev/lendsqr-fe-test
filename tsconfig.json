@@ -23,5 +23,5 @@
   "include": [
     "src", "src/global.d.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

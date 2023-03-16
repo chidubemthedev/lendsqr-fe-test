@@ -1,27 +1,26 @@
-// @ts-ignore
 import { ReactComponent as User } from "/src/assets/customersidelist/users.svg";
-// @ts-ignore
-
 import { ReactComponent as Guarantor } from "/src/assets/customersidelist/guarantors.svg";
-// @ts-ignore
-
 import { ReactComponent as Loans } from "/src/assets/customersidelist/loans.svg";
-// @ts-ignore
-
-
 import { ReactComponent as Decision } from "/src/assets/customersidelist/decision.svg";
-// @ts-ignore
-
 import { ReactComponent as Savings } from "/src/assets/customersidelist/savings.svg";
-// @ts-ignore
-
 import { ReactComponent as Requests } from "/src/assets/customersidelist/request.svg";
-// @ts-ignore
-
 import { ReactComponent as Whitelist } from "/src/assets/customersidelist/whitelist.svg";
-// @ts-ignore
-
 import { ReactComponent as Karma } from "/src/assets/customersidelist/karma.svg";
+
+import { ReactComponent as Organisation } from "/src/assets/businesssidelist/organisation.svg";
+import { ReactComponent as Loan } from "/src/assets/businesssidelist/loan.svg";
+import { ReactComponent as Saving } from "/src/assets/businesssidelist/savings.svg";
+import { ReactComponent as Fees } from "/src/assets/businesssidelist/fees.svg";
+import { ReactComponent as Transactions } from "/src/assets/businesssidelist/transactions.svg";
+import { ReactComponent as Services } from "/src/assets/businesssidelist/services.svg";
+import { ReactComponent as Account } from "/src/assets/businesssidelist/account.svg";
+import { ReactComponent as Settlements } from "/src/assets/businesssidelist/settlements.svg";
+import { ReactComponent as Reports } from "/src/assets/businesssidelist/reports.svg";
+
+import { ReactComponent as Preferences } from "/src/assets/settingssidelist/preferences.svg";
+import { ReactComponent as Pricing } from "/src/assets/settingssidelist/pricing.svg";
+import { ReactComponent as Audit } from "/src/assets/settingssidelist/audit.svg";
+import { ReactComponent as Logout } from "/src/assets/settingssidelist/logout.svg";
 
 export const customerSideBar = [
   {
@@ -60,54 +59,58 @@ export const customerSideBar = [
 
 export const businessSideBar = [
   {
-    icon: "/src/assets/businesssidelist/organisation.svg",
+    Icon: Organisation,
     title: "Organisation",
   },
   {
-    icon: "/src/assets/businesssidelist/loan.svg",
+    Icon: Loan,
     title: "Loan Products",
   },
   {
-    icon: "/src/assets/businesssidelist/savings.svg",
+    Icon: Saving,
     title: "Savings Products",
   },
   {
-    icon: "/src/assets/businesssidelist/fees.svg",
+    Icon: Fees,
     title: "Fees and Charges",
   },
   {
-    icon: "/src/assets/businesssidelist/transactions.svg",
+    Icon: Transactions,
     title: "Transactions",
   },
   {
-    icon: "/src/assets/businesssidelist/services.svg",
+    Icon: Services,
     title: "Services",
   },
   {
-    icon: "/src/assets/businesssidelist/account.svg",
+    Icon: Account,
     title: "Service Accounts",
   },
   {
-    icon: "/src/assets/businesssidelist/settlements.svg",
+    Icon: Settlements,
     title: "Settlements",
   },
   {
-    icon: "/src/assets/businesssidelist/reports.svg",
+    Icon: Reports,
     title: "Reports",
   },
 ];
 
 export const settingsSideBar = [
   {
-    icon: "/src/assets/settingssidelist/preferences.svg",
+    Icon: Preferences,
     title: "Preferences",
   },
   {
-    icon: "/src/assets/settingssidelist/pricing.svg",
+    Icon: Pricing,
     title: "Fees and Pricing",
   },
   {
-    icon: "/src/assets/settingssidelist/audit.svg",
+    Icon: Audit,
     title: "Audit Logs",
   },
+  {
+    Icon: Logout,
+    title: "Logout",
+  }
 ];

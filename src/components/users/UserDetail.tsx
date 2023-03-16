@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./UserDetail.module.scss";
-import Backarrow from "@/assets/userdetailicon/backarrow.svg";
-import Avatar from "@/assets/userdetailicon/avatar.svg";
-import StarFilled from "@/assets/userdetailicon/starfilled.svg";
-import StarOutline from "@/assets/userdetailicon/staroutline.svg";
-
+import { ReactComponent as Backarrow } from "@/assets/userdetailicon/backarrow.svg";
+import { ReactComponent as Avatar } from "@/assets/userdetailicon/avatar.svg";
+import { ReactComponent as StarFilled } from "@/assets/userdetailicon/starfilled.svg";
+import { ReactComponent as StarOutline } from "@/assets/userdetailicon/staroutline.svg";
 import { getUser } from "@/util/api";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { UserDetails } from "@/shared/dataTypes";
 
-// type Props = {};
 interface UserDetailProps {
   fromUserPage?: boolean;
 }
@@ -49,7 +47,7 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
       <div>
         <button className={classes.backbutton} onClick={handleClickBack}>
           <span className={classes.span}>
-            <img src={Backarrow} alt="go back" />
+            <Backarrow />
           </span>{" "}
           <span>Back to Users</span>
         </button>
@@ -66,10 +64,11 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
       <div className={classes.info}>
         <div className={classes.profileinfo}>
           <div>
-            <img
-              src={userDetail ? userDetail.profile.avatar : Avatar}
-              alt="profile image"
-            />
+            {userDetail ? (
+              <img src={userDetail.profile.avatar}></img>
+            ) : (
+              <Avatar />
+            )}
           </div>
           <div>
             <h1>{`${userDetail ? userDetail.profile.firstName : loading} ${
@@ -81,9 +80,9 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
         <div className={classes.profiletier}>
           <h1>User's Tier</h1>
           <div>
-            <img src={StarFilled} alt="star rating" />
-            <img src={StarOutline} alt="star rating" />
-            <img src={StarOutline} alt="star rating" />
+            <StarFilled />
+            <StarOutline />
+            <StarOutline />
           </div>
         </div>
         <div className={classes.profilebalance}>

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import signIn from "@/assets/sign-in-banner.svg";
-import brandLogo from "@/assets/logo.svg";
+import {ReactComponent as Signin} from "../assets/signinbanner.svg";
+import {ReactComponent as BrandLogo} from "@/assets/logo.svg";
 import classes from "./Login.module.scss";
 
 type Props = {};
@@ -51,13 +51,13 @@ const Login = (props: Props) => {
   return (
     <>
       <div className={classes.logo}>
-        <img src={brandLogo} alt="brand logo" />
+        <BrandLogo />
       </div>
 
       <div className={classes.container}>
         <div className={classes.banner}>
           <div>
-            <img src={signIn} alt="signin banner" />
+            <Signin />
           </div>
         </div>
 
