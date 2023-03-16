@@ -81,7 +81,7 @@ const Navbar = (props: Props) => {
           </div>
 
           <div>
-            <MobileMenu />
+            <MobileMenu setToggleMenu={setToggleMenu} />
           </div>
         </div>
       )}

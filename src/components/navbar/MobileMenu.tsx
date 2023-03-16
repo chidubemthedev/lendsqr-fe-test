@@ -7,9 +7,16 @@ import { customerSideBar } from "@/shared/sidebar";
 import { businessSideBar } from "@/shared/sidebar";
 import { settingsSideBar } from "@/shared/sidebar";
 
-type Props = {};
+type Props = {
+  setToggleMenu: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const MobileMenu = (props: Props) => {
+const MobileMenu = ({setToggleMenu}: Props) => {
+
+  const setHandler = () => {
+    setToggleMenu(false);
+  };
+
   return (
     <div className={`${classes.container} ${classes.scroll}`}>
       {/* Main section */}
@@ -40,7 +47,7 @@ const MobileMenu = (props: Props) => {
         {customerSideBar.map((item, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={item.title} className={classes.navitem}>
+              <NavLink to={item.title} onClick={setHandler} className={classes.navitem}>
                 <span>
                   <img src={item.icon} alt="customer icons" />
                 </span>{" "}
