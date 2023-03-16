@@ -38,7 +38,7 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
   }, [id]);
 
   const handleClickBack = (): void => {
-    navigate(-1, { state: { fromUserPage: true } });
+    navigate("../", { state: { fromUserPage: true } });
   };
 
   const loading: string = "xxx-xxx-xxx";

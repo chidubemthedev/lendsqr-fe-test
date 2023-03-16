@@ -16,7 +16,7 @@ type Props = {};
 const UserTable = (props: Props) => {
   const [toggleDropdown, setToggleDropdown] = useState<boolean>(false);
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
-  const [data, setData] = useState<userTable[] | null>(null);
+  const [data, setData] = useState<userTable[]>([]);
   const tableRef = useRef<HTMLTableElement>(null);
 
   const itemsPerPage = 10;
@@ -40,6 +40,7 @@ const UserTable = (props: Props) => {
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data?.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(data?.length / itemsPerPage);
+  console.log(data.length)
 
   const handlePageClick = (event: any) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
