@@ -1,34 +1,59 @@
+// @ts-ignore
+import { ReactComponent as User } from "/src/assets/customersidelist/users.svg";
+// @ts-ignore
+
+import { ReactComponent as Guarantor } from "/src/assets/customersidelist/guarantors.svg";
+// @ts-ignore
+
+import { ReactComponent as Loans } from "/src/assets/customersidelist/loans.svg";
+// @ts-ignore
+
+
+import { ReactComponent as Decision } from "/src/assets/customersidelist/decision.svg";
+// @ts-ignore
+
+import { ReactComponent as Savings } from "/src/assets/customersidelist/savings.svg";
+// @ts-ignore
+
+import { ReactComponent as Requests } from "/src/assets/customersidelist/request.svg";
+// @ts-ignore
+
+import { ReactComponent as Whitelist } from "/src/assets/customersidelist/whitelist.svg";
+// @ts-ignore
+
+import { ReactComponent as Karma } from "/src/assets/customersidelist/karma.svg";
+
 export const customerSideBar = [
   {
-    icon: "/src/assets/customersidelist/users.svg",
+    Icon: User,
     title: "Users",
   },
   {
-    icon: "/src/assets/customersidelist/guarantors.svg",
+    Icon: Guarantor,
     title: "Guarantors",
   },
   {
-    icon: "/src/assets/customersidelist/loans.svg",
+    Icon: Loans,
     title: "Loans",
   },
   {
-    icon: "/src/assets/customersidelist/decision.svg",
+    Icon: Decision,
     title: "Decision Models",
   },
   {
-    icon: "/src/assets/customersidelist/savings.svg",
+    Icon: Savings,
     title: "Savings",
   },
   {
-    icon: "/src/assets/customersidelist/request.svg",
+    Icon: Requests,
     title: "Loan Requests",
   },
   {
-    icon: "/src/assets/customersidelist/whitelist.svg",
+    Icon: Whitelist,
     title: "Whitelist",
   },
   {
-    icon: "/src/assets/customersidelist/karma.svg",
+    Icon: Karma,
     title: "Karma",
   },
 ];
@@ -84,5 +109,5 @@ export const settingsSideBar = [
   {
     icon: "/src/assets/settingssidelist/audit.svg",
     title: "Audit Logs",
-  }
-]
+  },
+];
