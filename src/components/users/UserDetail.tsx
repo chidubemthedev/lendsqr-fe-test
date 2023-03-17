@@ -35,6 +35,11 @@ const UserDetail = ({ fromUserPage }: UserDetailProps) => {
     }
   }, [id]);
 
+  //scroll to top for user detail page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleClickBack = (): void => {
     navigate("../", { state: { fromUserPage: true } });
   };
