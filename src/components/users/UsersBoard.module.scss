@@ -20,7 +20,7 @@
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   width: 25%;
-  min-height: 165px;
+  min-height: 142px;
 
   @include Tablet {
     width: 40%;
@@ -47,5 +47,6 @@
     line-height: 28px;
     text-transform: uppercase;
     color: $bluePrimary;
+    margin-bottom: 0;
   }
 }
