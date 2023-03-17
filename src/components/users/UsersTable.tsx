@@ -140,14 +140,14 @@ const UserTable = (props: Props) => {
                           <ViewIcon />
                           <span>View Details</span>
                         </Link>
-                        <li>
+                        <Link className={classes.link} to="">
                           <DeleteIcon />
                           <span>Blacklist User</span>
-                        </li>
-                        <li>
+                        </Link>
+                        <Link className={classes.link} to="">
                           <UserIcon />
                           <span>Activate User</span>
-                        </li>
+                        </Link>
                       </ul>
                     </div>
                   )}
