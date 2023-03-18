@@ -22,7 +22,12 @@ const MobileMenu = ({ setToggleMenu }: Props) => {
       <div className={classes.blocks}>
         <ul>
           <li>
-            <NavLink to="/switch" end className={classes.navitem}>
+            <NavLink
+              to="/switch"
+              onClick={setHandler}
+              end
+              className={classes.navitem}
+            >
               <span>
                 <Switch />
               </span>{" "}
@@ -30,7 +35,12 @@ const MobileMenu = ({ setToggleMenu }: Props) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard" end className={classes.navitem}>
+            <NavLink
+              to="/dashboard"
+              onClick={setHandler}
+              end
+              className={classes.navitem}
+            >
               <span>
                 <Dashboard />
               </span>{" "}
@@ -67,7 +77,11 @@ const MobileMenu = ({ setToggleMenu }: Props) => {
         {businessSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={title} className={classes.navitem}>
+              <NavLink
+                to={title}
+                onClick={setHandler}
+                className={classes.navitem}
+              >
                 <span>
                   <Icon />
                 </span>{" "}
@@ -84,7 +98,11 @@ const MobileMenu = ({ setToggleMenu }: Props) => {
         {settingsSideBar.map(({ Icon, title }, index) => (
           <ul key={index}>
             <li>
-              <NavLink to={title} className={classes.navitem}>
+              <NavLink
+                to={title}
+                onClick={setHandler}
+                className={classes.navitem}
+              >
                 <span>
                   <Icon />
                 </span>{" "}

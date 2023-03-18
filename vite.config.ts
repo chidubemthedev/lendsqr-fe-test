@@ -1,4 +1,6 @@
 /// <reference types="vitest" />
+/// <reference types="vite/client" />
+
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -13,7 +15,7 @@ export default defineConfig({
     environment: "jsdom",
     // css: true,
     // scss: true,
-    setupFiles: './setupTests.ts'
+    setupFiles: ['./src/setupTests.ts']
   },
   resolve: {
     alias: [

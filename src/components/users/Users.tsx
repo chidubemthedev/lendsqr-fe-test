@@ -6,7 +6,7 @@ type Props = {};
 
 const Users = (props: Props) => {
   return (
-    <div className={classes.container}>
+    <div data-testid="containermain" className={classes.container}>
       <h1>Users</h1>
       <UsersBoard />
 

@@ -4,8 +4,8 @@ type Props = {};
 
 const FilterPopup = (props: Props) => {
   return (
-    <div className={classes.container}>
-      <form className={classes.filterBody}>
+    <div data-testid="filtercontainer" className={classes.container}>
+      <form data-testid="filter-form" className={classes.filterBody}>
         <div>
           <label htmlFor="organisation">Organisation</label>
           <select name="organisation" id="organisation">

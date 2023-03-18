@@ -22,7 +22,8 @@
     "types": ["vitest/globals"]
   },
   "include": [
-    "src", "src/global.d.ts"
+    "src", "src/global.d.ts",
+    // "src", "./setupTest.ts",
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
 }
